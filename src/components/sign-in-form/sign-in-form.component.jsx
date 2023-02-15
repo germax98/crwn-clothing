@@ -18,15 +18,14 @@ const defaultformFields = {
 const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultformFields)
     const { email, password }=formFields
-    
     const resetFormFields = ()=>{
         setFormFields(defaultformFields)
     } //reset the input fields
 
 //-------Sign in Google
     const signInWithGoogle = async () => {
-        const {user} = await signInWithGooglePopup()
-         await createUserDocumentFromAuth(user) //calls firebase.utils.js to make a sign in via google
+        await signInWithGooglePopup()
+         //calls firebase.utils.js to make a sign in via google
     }
     const handleSubmit = async(event)=>{
         event.preventDefault()// make sure that a user add data
@@ -34,8 +33,7 @@ const SignInForm = () => {
 
 //-------Sign in Email & Password
         try{
-            const response = await signInAuthUserWithEmailAndPassword(email,password)
-            console.log(response)
+            const {user} = await signInAuthUserWithEmailAndPassword(email,password)
             resetFormFields()
         }catch (error){
             switch (error.code){

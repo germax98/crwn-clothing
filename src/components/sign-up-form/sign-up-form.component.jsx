@@ -18,7 +18,6 @@ const defaultformFields = {
 const SignUpForm = () => {
     const [formFields, setFormFields] = useState(defaultformFields)
     const {displayName , email, password, confirmPassword }=formFields
-    
     const resetFormFields = ()=>{
         setFormFields(defaultformFields)
     }//to empty the input 
@@ -35,6 +34,7 @@ const SignUpForm = () => {
                 email,
                 password
                 )
+
             await createUserDocumentFromAuth(user, {displayName})
             resetFormFields()
             
