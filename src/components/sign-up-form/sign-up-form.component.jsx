@@ -5,6 +5,9 @@ import Button from "../button/button.component"
 import './sign-up-form.styles.scss'
 
 
+//-------------------Sign up Component
+
+//-- default values
 const defaultformFields = {
     displayName: '',
     email: '',
@@ -18,7 +21,8 @@ const SignUpForm = () => {
     
     const resetFormFields = ()=>{
         setFormFields(defaultformFields)
-    }
+    }//to empty the input 
+
     const handleSubmit = async(event)=>{
         event.preventDefault()
         if(password != confirmPassword){
