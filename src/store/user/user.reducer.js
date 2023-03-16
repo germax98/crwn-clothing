@@ -1,0 +1,22 @@
+export const USER_ACTION_TYPES = {
+    SET_CURRENT_USER: 'SET_CURRENT_USER',
+  } 
+  
+  const INITAL_STATE = {
+    currentUser: null
+  }
+  
+export const userReducer = (state = INITAL_STATE, action)=>{
+    const {type,payload} = action
+    switch(type){
+      case USER_ACTION_TYPES.SET_CURRENT_USER:
+        return{
+          ...state,
+          cureentUser: payload
+        }
+      
+      default: 
+        return state //returns default state if non of the cases change
+    }
+  }
+  
