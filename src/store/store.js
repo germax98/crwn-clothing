@@ -2,17 +2,18 @@ import { compose, createStore, applyMiddleware } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist'; //cookies to save the shopping carts on reload of the page
 import storage from 'redux-persist/lib/storage';
 import logger from 'redux-logger'
-
+import thunk from 'redux-thunk'
 import { rootReducer } from './root-reducer';
 
 
-const middleWares = [process.env.NODE_ENV !== 'production' && logger].filter(Boolean);
+const middleWares = [process.env.NODE_ENV !== 'production' && logger, thunk].filter(Boolean);
 
 const persistConfig = {
   key: 'root',
   storage,
   blacklist: ['user'],
 };
+
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
