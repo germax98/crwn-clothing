@@ -11,7 +11,7 @@ const middleWares = [process.env.NODE_ENV !== 'production' && logger, thunk].fil
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['user'],
+  whitelist: ['cart'],
 };
 
 
