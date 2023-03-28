@@ -19,7 +19,7 @@ import {
   query,
   getDocs,
 } from 'firebase/firestore';
-
+//test
 const firebaseConfig = {
   apiKey: 'AIzaSyDDU4V-_QV3M8GyhC9SVieRTDM4dbiT0Yk',
   authDomain: 'crwn-clothing-db-98d4d.firebaseapp.com',
